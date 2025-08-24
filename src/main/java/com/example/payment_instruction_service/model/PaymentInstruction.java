@@ -22,7 +22,7 @@ public class PaymentInstruction {
     BigDecimal amount;
     String currency;
     String reference;
-    LocalDateTime created;
+    String created;
     Status status;
 
     public enum Status {
@@ -78,11 +78,11 @@ public class PaymentInstruction {
         this.reference = reference;
     }
 
-    public LocalDateTime getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 

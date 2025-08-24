@@ -10,5 +10,5 @@ public record PaymentEvent(
         BigDecimal amount,
         String currency,
         String reference,
-        LocalDateTime timestamp
+        String timestamp
 ) {}

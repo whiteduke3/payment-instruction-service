@@ -24,13 +24,12 @@ public class PaymentService {
     @Transactional
     public PaymentInstruction createPayment(PaymentRequest request) {
         PaymentInstruction instruction = new PaymentInstruction();
-        //instruction.setId(java.util.UUID.randomUUID());
         instruction.setDebtorAccount(request.getDebtorAccount());
         instruction.setCreditorAccount(request.getCreditorAccount());
         instruction.setAmount(request.getAmount());
         instruction.setCurrency(request.getCurrency());
         instruction.setReference(request.getReference());
-        instruction.setCreated(java.time.LocalDateTime.now());
+        instruction.setCreated(java.time.LocalDateTime.now().toString());
         if (isPaymentValid(request)) {
             instruction.setStatus(PaymentInstruction.Status.PENDING);
         } else {

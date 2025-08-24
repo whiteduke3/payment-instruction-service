@@ -46,3 +46,8 @@ coverage/
 /lerna-debug.log*
 /.cache
 /.turbo
+
+src/.DS_Store
+src/main/.DS_Store
+build/.DS_Store
+.DS_Store

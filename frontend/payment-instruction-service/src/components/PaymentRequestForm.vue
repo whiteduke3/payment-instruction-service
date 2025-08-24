@@ -2,7 +2,7 @@
   <form @submit.prevent="submitForm">
     <input v-model="debtorAccount" placeholder="Debtor Account" required /><br />
     <input v-model="creditorAccount" placeholder="Creditor Account" required /><br />
-    <input v-model.number="amount" type="number" placeholder="Amount" required /><br />
+    <input v-model.number="amount" type="number" step="any" placeholder="Amount" required /><br />
     <input v-model="currency" placeholder="Currency" required /><br />
     <input v-model="reference" placeholder="Reference" required /><br />
     <button type="submit">Submit</button>
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     async submitForm() {
-      const baseUrl = "http://localhost:8080"
+      const baseUrl = 'http://localhost:8080'
       const payload = {
         debtor_account: this.debtorAccount,
         creditor_account: this.creditorAccount,
@@ -35,6 +35,12 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
+      // Clear all inputs
+      this.debtorAccount = ''
+      this.creditorAccount = ''
+      this.amount = null
+      this.currency = ''
+      this.reference = ''
     },
   },
 }
